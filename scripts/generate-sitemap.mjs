@@ -1,7 +1,7 @@
 import { mkdir, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-const SITE_URL = 'https://example.com';
+const SITE_URL = 'http://www.advokatklimenko.com.ua';
 const pages = [
   '/',
   '/pro.html',

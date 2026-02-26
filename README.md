@@ -1,6 +1,9 @@
 # Lawyer Website (Ladizhyn) — Vite + Vanilla JS
 
-SEO-first static multi-page website for a lawyer in Ladyzhyn, optimized for local search and fast loading.
+SEO-first static multi-page website for lawyer **Клименко Ірина Федорівна** (Ладижин), optimized for local search and fast loading.
+
+- Domain (configured in canonical/OG/JSON-LD/robots/sitemap): `http://www.advokatklimenko.com.ua`
+- Repo status: production-ready base, pending final OG image + legal text review
 
 ## Scripts
 - `npm install`
@@ -10,5 +13,5 @@ SEO-first static multi-page website for a lawyer in Ladyzhyn, optimized for loca
 - `npm run sitemap`
 
 ## Notes
-- Replace placeholder contacts/domain in HTML pages and `scripts/generate-sitemap.mjs`.
 - All pages are separate HTML entry points for SEO.
+- See `schema.md` for full project journal and `PROJECT_STATUS.md` for prioritized next steps.
