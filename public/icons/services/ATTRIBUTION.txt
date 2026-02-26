@@ -1,0 +1,12 @@
+Service card icons downloaded from Flaticon (free icons).
+Source pages:
+- https://www.flaticon.com/free-icon/family-law_10642228
+- https://www.flaticon.com/free-icon/inheritance_9875106
+- https://www.flaticon.com/free-icon/courthouse_6009520
+- https://www.flaticon.com/free-icon/briefcase_5474398
+- https://www.flaticon.com/free-icon/debt_16779470
+- https://www.flaticon.com/free-icon/legal-advice_9897157
+- https://www.flaticon.com/free-icon/contract-law_10642267
+- https://www.flaticon.com/free-icon/courthouse_13100567
+
+Check Flaticon licensing/attribution requirements before production deployment.
