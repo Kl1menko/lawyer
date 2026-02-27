@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.advokatklimenko.com.ua/sitemap.xml
+Sitemap: https://www.advokatklimenko.com.ua/sitemap.xml

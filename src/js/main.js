@@ -62,13 +62,6 @@ function initReveals() {
   items.forEach((el) => observer.observe(el));
 }
 
-function initFaqOpenFirst() {
-  const first = document.querySelector('.faq details');
-  if (first && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    first.open = true;
-  }
-}
-
 function initScrollCallCta() {
   const trigger = document.querySelector('.why-split');
   if (!trigger) return;
@@ -120,11 +113,60 @@ function initScrollCallCta() {
   observer.observe(trigger);
 }
 
+function initFooterSocials() {
+  const footerCols = document.querySelectorAll('.site-footer .footer-grid > div');
+  if (!footerCols.length) return;
+
+  const targetCol = footerCols[footerCols.length - 1];
+  if (!targetCol || targetCol.querySelector('.footer-socials')) return;
+
+  const socialWrap = document.createElement('div');
+  socialWrap.className = 'footer-socials';
+  socialWrap.setAttribute('aria-label', 'Соціальні мережі');
+  socialWrap.innerHTML = `
+    <a class="footer-socials__link" href="https://www.facebook.com/advokat.irina.klimenko" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <img src="/icons/social/facebook.png" alt="" loading="lazy" decoding="async" />
+    </a>
+    <a class="footer-socials__link" href="https://t.me/+380679649515" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+      <img src="/icons/social/telegram.png" alt="" loading="lazy" decoding="async" />
+    </a>
+    <a class="footer-socials__link" href="viber://chat?number=%2B380679649515" aria-label="Viber">
+      <img src="/icons/social/viber.png" alt="" loading="lazy" decoding="async" />
+    </a>
+  `;
+
+  const copyright = targetCol.querySelector('.small');
+  if (copyright) {
+    targetCol.insertBefore(socialWrap, copyright);
+  } else {
+    targetCol.appendChild(socialWrap);
+  }
+}
+
+function syncFooterBrandWithHeader() {
+  const footerBrandNames = document.querySelectorAll('.site-footer .brand .brand__name');
+  if (!footerBrandNames.length) return;
+
+  footerBrandNames.forEach((el) => {
+    el.innerHTML = 'Адвокат<span class="brand__city">Клименко Ірина</span>';
+  });
+}
+
+function syncFooterLeadText() {
+  const footerLead = document.querySelector('.site-footer .footer-grid > div:first-child .muted');
+  if (!footerLead) return;
+
+  footerLead.textContent =
+    'Клименко Ірина Федорівна — адвокат у Ладижині. Цивільні справи, консультації, підготовка документів і судовий супровід.';
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   initSeoHelpers();
   initMobileMenu();
   initForms();
   initReveals();
-  initFaqOpenFirst();
   initScrollCallCta();
+  syncFooterBrandWithHeader();
+  syncFooterLeadText();
+  initFooterSocials();
 });
