@@ -15,7 +15,9 @@ const pages = [
   '/poslugy/spadkovi-spravy.html',
   '/poslugy/maynovi-spory.html',
   '/poslugy/trudovi-spory.html',
-  '/poslugy/styagnennya-borgu.html'
+  '/poslugy/styagnennya-borgu.html',
+  '/poslugy/kreditni-zobovyazannya.html',
+  '/poslugy/spory-z-derzhavnymy-organamy.html'
 ];
 
 const today = new Date().toISOString().slice(0, 10);

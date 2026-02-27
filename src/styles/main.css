@@ -1713,6 +1713,8 @@ input[type="checkbox"]:focus-visible {
 .service-page--maynovi-spory .page-hero__media { background: linear-gradient(145deg, #353c45, #1f2329); }
 .service-page--trudovi-spory .page-hero__media { background: linear-gradient(145deg, #30454f, #1a252b); }
 .service-page--styagnennya-borgu .page-hero__media { background: linear-gradient(145deg, #463629, #271d16); }
+.service-page--kreditni-zobovyazannya .page-hero__media { background: linear-gradient(145deg, #305a67, #1f3138); }
+.service-page--spory-z-derzhavnymy-organamy .page-hero__media { background: linear-gradient(145deg, #3c4559, #252b38); }
 
 .service-page .grid--2 .card {
   position: relative;

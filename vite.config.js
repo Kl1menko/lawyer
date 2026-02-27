@@ -14,7 +14,9 @@ const pages = {
   'poslugy/spadkovi-spravy': 'src/pages/poslugy/spadkovi-spravy.html',
   'poslugy/maynovi-spory': 'src/pages/poslugy/maynovi-spory.html',
   'poslugy/trudovi-spory': 'src/pages/poslugy/trudovi-spory.html',
-  'poslugy/styagnennya-borgu': 'src/pages/poslugy/styagnennya-borgu.html'
+  'poslugy/styagnennya-borgu': 'src/pages/poslugy/styagnennya-borgu.html',
+  'poslugy/kreditni-zobovyazannya': 'src/pages/poslugy/kreditni-zobovyazannya.html',
+  'poslugy/spory-z-derzhavnymy-organamy': 'src/pages/poslugy/spory-z-derzhavnymy-organamy.html'
 };
 
 export default defineConfig({
