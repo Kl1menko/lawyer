@@ -594,6 +594,10 @@ input[type="checkbox"]:focus-visible {
 }
 .grid--cards .card .card__footer {
   margin-top: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
 }
 .grid--cards .card .card__footer a {
   display: inline-flex;
@@ -739,6 +743,8 @@ input[type="checkbox"]:focus-visible {
   .grid--cards .card .card__footer {
     margin-top: 0.05rem;
     width: 100%;
+    display: grid;
+    gap: 0.45rem;
   }
   .grid--cards .card .card__footer a {
     width: 100%;

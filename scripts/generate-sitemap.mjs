@@ -3,29 +3,30 @@ import { dirname, join, posix, relative } from 'node:path';
 
 const SITE_URL = 'https://advokatklimenko.com.ua';
 const pages = [
-  '/',
-  '/pro.html',
-  '/poslugy.html',
-  '/kontakty.html',
-  '/vidguky.html',
-  '/privacy.html',
-  '/terms.html',
-  '/404.html',
-  '/poslugy/simeyni-spory.html',
-  '/poslugy/alimenty.html',
-  '/poslugy/rozirvannya-shlyubu.html',
-  '/poslugy/podil-mayna-podruzhzhya.html',
-  '/poslugy/spadkovi-spravy.html',
-  '/poslugy/maynovi-spory.html',
-  '/poslugy/trudovi-spory.html',
-  '/poslugy/styagnennya-borgu.html',
-  '/poslugy/vykonavche-provadzhennya.html',
-  '/poslugy/oskarzhennya-vykonavchogo-napysu-notariusa.html',
-  '/poslugy/kreditni-zobovyazannya.html',
-  '/poslugy/spory-z-derzhavnymy-organamy.html'
+  { path: '/', file: 'src/pages/index.html' },
+  { path: '/pro.html', file: 'src/pages/pro.html' },
+  { path: '/poslugy.html', file: 'src/pages/poslugy.html' },
+  { path: '/kontakty.html', file: 'src/pages/kontakty.html' },
+  { path: '/vidguky.html', file: 'src/pages/vidguky.html' },
+  { path: '/privacy.html', file: 'src/pages/privacy.html' },
+  { path: '/terms.html', file: 'src/pages/terms.html' },
+  { path: '/poslugy/simeyni-spory.html', file: 'src/pages/poslugy/simeyni-spory.html' },
+  { path: '/poslugy/alimenty.html', file: 'src/pages/poslugy/alimenty.html' },
+  { path: '/poslugy/rozirvannya-shlyubu.html', file: 'src/pages/poslugy/rozirvannya-shlyubu.html' },
+  { path: '/poslugy/podil-mayna-podruzhzhya.html', file: 'src/pages/poslugy/podil-mayna-podruzhzhya.html' },
+  { path: '/poslugy/spadkovi-spravy.html', file: 'src/pages/poslugy/spadkovi-spravy.html' },
+  { path: '/poslugy/maynovi-spory.html', file: 'src/pages/poslugy/maynovi-spory.html' },
+  { path: '/poslugy/trudovi-spory.html', file: 'src/pages/poslugy/trudovi-spory.html' },
+  { path: '/poslugy/styagnennya-borgu.html', file: 'src/pages/poslugy/styagnennya-borgu.html' },
+  { path: '/poslugy/vykonavche-provadzhennya.html', file: 'src/pages/poslugy/vykonavche-provadzhennya.html' },
+  {
+    path: '/poslugy/oskarzhennya-vykonavchogo-napysu-notariusa.html',
+    file: 'src/pages/poslugy/oskarzhennya-vykonavchogo-napysu-notariusa.html'
+  },
+  { path: '/poslugy/kreditni-zobovyazannya.html', file: 'src/pages/poslugy/kreditni-zobovyazannya.html' },
+  { path: '/poslugy/spory-z-derzhavnymy-organamy.html', file: 'src/pages/poslugy/spory-z-derzhavnymy-organamy.html' }
 ];
 
-const today = new Date().toISOString().slice(0, 10);
 const distDir = join(process.cwd(), 'dist');
 
 async function flattenHtmlEntries() {
@@ -119,11 +120,23 @@ async function rewriteLocalHtmlPaths() {
   await walk(distDir);
 }
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages
-  .map(
-    (path) => `  <url><loc>${new URL(path, SITE_URL).toString()}</loc><lastmod>${today}</lastmod></url>`
-  )
-  .join('\n')}\n</urlset>\n`;
+async function getLastMod(filePath) {
+  try {
+    const fileStat = await stat(join(process.cwd(), filePath));
+    return fileStat.mtime.toISOString().slice(0, 10);
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
+const xmlEntries = await Promise.all(
+  pages.map(async ({ path, file }) => {
+    const lastmod = await getLastMod(file);
+    return `  <url><loc>${new URL(path, SITE_URL).toString()}</loc><lastmod>${lastmod}</lastmod></url>`;
+  })
+);
+
+const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${xmlEntries.join('\n')}\n</urlset>\n`;
 
 await flattenHtmlEntries();
 await rewriteLocalHtmlPaths();
