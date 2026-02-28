@@ -1,6 +1,11 @@
 import { initForms } from './form.js';
 import { initSeoHelpers } from './seo.js';
 
+function resolveSiteAssetPath(path) {
+  const siteRootUrl = new URL(/* @vite-ignore */ '../', import.meta.url);
+  return new URL(path.replace(/^\/+/, ''), siteRootUrl).toString();
+}
+
 function initMobileMenu() {
   const toggle = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav-panel]');
@@ -125,13 +130,13 @@ function initFooterSocials() {
   socialWrap.setAttribute('aria-label', 'Соціальні мережі');
   socialWrap.innerHTML = `
     <a class="footer-socials__link" href="https://www.facebook.com/advokat.irina.klimenko" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-      <img src="/icons/social/facebook.png" alt="" loading="lazy" decoding="async" />
+      <img src="${resolveSiteAssetPath('icons/social/facebook.png')}" alt="" loading="lazy" decoding="async" />
     </a>
     <a class="footer-socials__link" href="https://t.me/+380679649515" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-      <img src="/icons/social/telegram.png" alt="" loading="lazy" decoding="async" />
+      <img src="${resolveSiteAssetPath('icons/social/telegram.png')}" alt="" loading="lazy" decoding="async" />
     </a>
     <a class="footer-socials__link" href="viber://chat?number=%2B380679649515" aria-label="Viber">
-      <img src="/icons/social/viber.png" alt="" loading="lazy" decoding="async" />
+      <img src="${resolveSiteAssetPath('icons/social/viber.png')}" alt="" loading="lazy" decoding="async" />
     </a>
   `;
 

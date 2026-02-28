@@ -2,7 +2,7 @@
 
 SEO-first static multi-page website for lawyer **Клименко Ірина Федорівна** (Ладижин), optimized for local search and fast loading.
 
-- Domain (configured in canonical/OG/JSON-LD/robots/sitemap): `http://www.advokatklimenko.com.ua`
+- Domain (configured in canonical/OG/JSON-LD/robots/sitemap): `https://advokatklimenko.com.ua`
 - Repo status: production-ready base, pending final OG image + legal text review
 
 ## Scripts
