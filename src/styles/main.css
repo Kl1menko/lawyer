@@ -535,6 +535,9 @@ input[type="checkbox"]:focus-visible {
   background: radial-gradient(circle at 12% 8%, rgba(255,255,255,0.55), transparent 46%);
   opacity: 0.8;
 }
+.service-page .section .card::before {
+  display: none;
+}
 .card h3 { margin: 0 0 0.35rem; line-height: 1.25; }
 .card p { margin: 0; color: var(--muted); }
 .card__footer {

@@ -11,6 +11,7 @@ const pages = [
   { path: '/privacy.html', file: 'src/pages/privacy.html' },
   { path: '/terms.html', file: 'src/pages/terms.html' },
   { path: '/poslugy/simeyni-spory.html', file: 'src/pages/poslugy/simeyni-spory.html' },
+  { path: '/poslugy/pensiyni-spravy.html', file: 'src/pages/poslugy/pensiyni-spravy.html' },
   { path: '/poslugy/alimenty.html', file: 'src/pages/poslugy/alimenty.html' },
   { path: '/poslugy/rozirvannya-shlyubu.html', file: 'src/pages/poslugy/rozirvannya-shlyubu.html' },
   { path: '/poslugy/podil-mayna-podruzhzhya.html', file: 'src/pages/poslugy/podil-mayna-podruzhzhya.html' },

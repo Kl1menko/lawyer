@@ -11,6 +11,7 @@ const pages = {
   terms: 'src/pages/terms.html',
   '404': 'src/pages/404.html',
   'poslugy/simeyni-spory': 'src/pages/poslugy/simeyni-spory.html',
+  'poslugy/pensiyni-spravy': 'src/pages/poslugy/pensiyni-spravy.html',
   'poslugy/alimenty': 'src/pages/poslugy/alimenty.html',
   'poslugy/rozirvannya-shlyubu': 'src/pages/poslugy/rozirvannya-shlyubu.html',
   'poslugy/podil-mayna-podruzhzhya': 'src/pages/poslugy/podil-mayna-podruzhzhya.html',
