@@ -2687,7 +2687,7 @@ textarea { min-height: 112px; resize: vertical; }
     align-items: stretch;
     gap: 0.95rem;
     padding: 1rem 1.05rem;
-    height: 400px;
+    min-height: 400px;
   }
   .home-promo__content {
     align-content: center;
@@ -2695,7 +2695,7 @@ textarea { min-height: 112px; resize: vertical; }
   }
   .home-promo__media {
     min-height: 400px;
-    height: 100%;
+    height: auto;
   }
   .home-promo__media img {
     max-height: 100%;
